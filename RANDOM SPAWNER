@@ -4,32 +4,39 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
-    public birdy Birdscript;
-
+    public birdy BirdScript;
     public GameObject borular;
-
     public float height;
-
     public float time;
 
 
-    private void start()
+
+
+
+    // Start is called before the first frame update
+    void Start()
     {
-       StartCoroutine(SpawnObject(time));
+        StartCoroutine(SpawnObject(time));
 
     }
 
-
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     public IEnumerator SpawnObject(float time)
     {
-        while (!Birdscript.isDead)
+        while (!BirdScript.isDead)
         {
 
+         
             Instantiate(borular, new Vector3(3, Random.Range(-height, height), 0), Quaternion.identity);
+
             yield return new WaitForSeconds(time);
         }
-
-
+        
     }
 }
+
