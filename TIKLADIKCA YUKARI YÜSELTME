@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class birdy : MonoBehaviour
+{
+    public float velocity = 1f;
+    public Rigidbody2D rb2D;
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        //tıklamayı al
+        if (Input.GetMouseButtonDown(0))
+        {
+            // havata kuşu sıçrat 
+            rb2D.velocity = Vector2.up * velocity;
+        }
+    }
+}
