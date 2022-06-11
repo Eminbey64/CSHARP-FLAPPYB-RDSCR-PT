@@ -10,16 +10,26 @@ public class spawner : MonoBehaviour
 
     public float height;
 
+    public float time;
 
-    public IEnumerator SpawnObject()
+
+    private void start()
+    {
+       StartCoroutine(SpawnObject(time));
+
+    }
+
+
+
+    public IEnumerator SpawnObject(float time)
     {
         while (!Birdscript.isDead)
         {
-         
+
             Instantiate(borular, new Vector3(3, Random.Range(-height, height), 0), Quaternion.identity);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(time);
         }
-       
+
 
     }
 }
